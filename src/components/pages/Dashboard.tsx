@@ -19,6 +19,8 @@ const Dashboard = () => {
   // Get logged-in user from localStorage
   const user = JSON.parse(localStorage.getItem("user") || "{}");
   const userEmail = user.email;
+  const userRole = user.role || "user";
+  const isAdmin = userRole === "admin";
 
   // Helper to get cached data
   const getCachedStats = () => {
@@ -45,7 +47,13 @@ const Dashboard = () => {
       }
     }
     setLoading(true);
-    fetch(`http://localhost:5000/api/dashboard-stats?userEmail=${encodeURIComponent(userEmail)}`)
+    
+    // Use different endpoints based on user role
+    const endpoint = isAdmin 
+      ? `http://localhost:5000/api/dashboard-stats/admin`
+      : `http://localhost:5000/api/dashboard-stats?userEmail=${encodeURIComponent(userEmail)}`;
+    
+    fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
         setStats(data);
@@ -69,7 +77,13 @@ const Dashboard = () => {
   const handleRefresh = () => {
     setRefreshing(true);
     localStorage.removeItem(CACHE_KEY);
-    fetch(`http://localhost:5000/api/dashboard-stats?userEmail=${encodeURIComponent(userEmail)}`)
+    
+    // Use different endpoints based on user role
+    const endpoint = isAdmin 
+      ? `http://localhost:5000/api/dashboard-stats/admin`
+      : `http://localhost:5000/api/dashboard-stats?userEmail=${encodeURIComponent(userEmail)}`;
+    
+    fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
         setStats(data);
@@ -89,13 +103,13 @@ const Dashboard = () => {
   if (error) return <div className="p-8 text-center text-red-500">{error}</div>;
   if (!stats) return null;
 
-  // User-specific stats
-  const userStats = stats.userStats || {};
-  const barData = (userStats.userLetterStatusCounts || []).map((s: any) => ({
+  // Stats based on user role
+  const statsData = isAdmin ? stats : (stats.userStats || {});
+  const barData = (statsData.userLetterStatusCounts || statsData.letterStatusCounts || []).map((s: any) => ({
     name: s._id,
     value: s.count,
   }));
-  const lineData = (userStats.userLettersByDate || []).map((d: any) => ({
+  const lineData = (statsData.userLettersByDate || statsData.lettersByDate || []).map((d: any) => ({
     date: d._id,
     value: d.count,
   }));
@@ -108,7 +122,10 @@ const Dashboard = () => {
             {t.dashboard.dashboard || "Dashboard"}
           </h2>
           <p className="text-lg text-[#BFBFBF] font-medium">
-            {t.dashboard.analyticsWelcome || "Welcome to your analytics dashboard"}
+            {isAdmin 
+              ? "System-wide analytics dashboard" 
+              : (t.dashboard.analyticsWelcome || "Welcome to your analytics dashboard")
+            }
           </p>
         </div>
         <button
@@ -121,19 +138,19 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center transition-transform duration-200 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <span className="text-3xl font-bold text-[#10b981]">
-              {userStats.sentCount ?? 0}
+              {statsData.sentCount ?? 0}
             </span>
             <span className="text-gray-500 mt-2">Sent Letters</span>
           </div>
           <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center transition-transform duration-200 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <span className="text-3xl font-bold text-[#6366f1]">
-              {userStats.receivedCount ?? 0}
+              {statsData.receivedCount ?? 0}
             </span>
             <span className="text-gray-500 mt-2">Received Letters</span>
           </div>
           <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center transition-transform duration-200 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <span className="text-3xl font-bold text-[#f59e42]">
-              {userStats.totalUserLetters ?? 0}
+              {statsData.totalUserLetters ?? statsData.totalLetters ?? 0}
             </span>
             <span className="text-gray-500 mt-2">Total (Sent + Received)</span>
           </div>
