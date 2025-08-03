@@ -261,89 +261,132 @@ export const Sidebar = ({
               ))}
             </nav>
             
-            {/* Feedback Section - Only show when sidebar is open */}
-            {isOpen && (
-              <div className="px-4 py-6 mt-8 border-t border-gray-200 dark:border-gray-600">
-                {/* Card Icons with Swirling Pattern */}
-                <div className="relative mb-6">
-                  {/* Swirling dashed line */}
-                  <svg
-                    className="absolute inset-0 w-full h-16"
-                    viewBox="0 0 200 60"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M20 30 Q50 10 80 30 T140 30 Q170 50 180 30"
-                      stroke={theme === "dark" ? "#9CA3AF" : "#D1D5DB"}
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
+                         {/* Feedback Section - Only show when sidebar is open */}
+             {isOpen && (
+               <div className="px-6 py-8 mt-12 border-t border-gray-200 dark:border-gray-600">
+                                   {/* Card Icons with Swirling Pattern */}
+                  <div className="relative mb-12">
+                    {/* Swirling dashed line */}
+                    <svg
+                      className="absolute inset-0 w-full h-24"
+                      viewBox="0 0 200 100"
                       fill="none"
-                    />
-                    {/* Dots along the path */}
-                    <circle cx="20" cy="30" r="2" fill={theme === "dark" ? "#9CA3AF" : "#9CA3AF"} />
-                    <circle cx="80" cy="30" r="2" fill={theme === "dark" ? "#9CA3AF" : "#9CA3AF"} />
-                    <circle cx="140" cy="30" r="2" fill={theme === "dark" ? "#9CA3AF" : "#9CA3AF"} />
-                    <circle cx="180" cy="30" r="2" fill={theme === "dark" ? "#9CA3AF" : "#9CA3AF"} />
-                  </svg>
-                  
-                  {/* Card 1 - Top left */}
-                  <div className="absolute top-0 left-0 w-12 h-8 bg-white rounded-lg shadow-sm border border-gray-200 flex items-start justify-start p-1">
-                    <div className="w-2 h-2 bg-green-500 rounded-sm mr-1 mt-1"></div>
-                    <div className="flex flex-col space-y-0.5 flex-1">
-                      <div className="h-1 bg-gray-300 rounded w-3/4"></div>
-                      <div className="h-1 bg-gray-300 rounded w-1/2"></div>
-                      <div className="h-1 bg-gray-300 rounded w-2/3"></div>
-                      <div className="h-1 bg-gray-300 rounded w-1/3"></div>
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 25 Q50 5 80 25 T140 25 Q170 70 180 25"
+                        stroke={theme === "dark" ? "#9CA3AF" : "#D1D5DB"}
+                        strokeWidth="2"
+                        strokeDasharray="4 4"
+                        fill="none"
+                      />
+                      {/* Dots along the path */}
+                      <circle cx="20" cy="25" r="2" fill={theme === "dark" ? "#9CA3AF" : "#9CA3AF"} />
+                      <circle cx="80" cy="25" r="2" fill={theme === "dark" ? "#9CA3AF" : "#9CA3AF"} />
+                      <circle cx="140" cy="25" r="2" fill={theme === "dark" ? "#9CA3AF" : "#9CA3AF"} />
+                      <circle cx="180" cy="25" r="2" fill={theme === "dark" ? "#9CA3AF" : "#9CA3AF"} />
+                    </svg>
+                    
+                    {/* Card 1 - Top left (largest) */}
+                    <div className={`absolute top-0 left-0 w-12 h-8 rounded-lg shadow-sm border flex items-start justify-start p-1 ${
+                      theme === "dark" 
+                        ? "bg-[#2E5C7D] border-[#C88B3D]/30" 
+                        : "bg-white border-gray-200"
+                    }`}>
+                      <div className={`w-2 h-2 rounded-sm mr-1 mt-1 ${
+                        theme === "dark" ? "bg-[#C88B3D]" : "bg-hover-gold"
+                      }`}></div>
+                      <div className="flex flex-col space-y-0.5 flex-1">
+                        <div className={`h-1 rounded w-3/4 ${
+                          theme === "dark" ? "bg-gray-400" : "bg-gray-300"
+                        }`}></div>
+                        <div className={`h-1 rounded w-1/2 ${
+                          theme === "dark" ? "bg-gray-400" : "bg-gray-300"
+                        }`}></div>
+                        <div className={`h-1 rounded w-2/3 ${
+                          theme === "dark" ? "bg-gray-400" : "bg-gray-300"
+                        }`}></div>
+                        <div className={`h-1 rounded w-1/3 ${
+                          theme === "dark" ? "bg-gray-400" : "bg-gray-300"
+                        }`}></div>
+                      </div>
+                    </div>
+                    
+                    {/* Card 2 - Bottom middle (smallest) */}
+                    <div className={`absolute bottom-0 left-8 w-8 h-6 rounded-lg shadow-sm border flex items-center justify-center ${
+                      theme === "dark" 
+                        ? "bg-[#2E5C7D] border-[#C88B3D]/30" 
+                        : "bg-white border-gray-200"
+                    }`}>
+                      <div className={`w-2 h-2 rounded-sm mr-1 ${
+                        theme === "dark" ? "bg-[#C88B3D]" : "bg-hover-gold"
+                      }`}></div>
+                      <div className="flex flex-col space-y-0.5">
+                        <div className={`h-1 rounded w-6 ${
+                          theme === "dark" ? "bg-gray-400" : "bg-gray-300"
+                        }`}></div>
+                        <div className={`h-1 rounded w-4 ${
+                          theme === "dark" ? "bg-gray-400" : "bg-gray-300"
+                        }`}></div>
+                      </div>
+                    </div>
+                    
+                    {/* Card 3 - Top right (medium) */}
+                    <div className={`absolute top-0 right-0 w-12 h-8 rounded-lg shadow-sm border flex items-start justify-start p-1 ${
+                      theme === "dark" 
+                        ? "bg-[#2E5C7D] border-[#C88B3D]/30" 
+                        : "bg-white border-gray-200"
+                    }`}>
+                      <div className={`w-1.5 h-1.5 rounded-full mr-1 mt-1 ${
+                        theme === "dark" ? "bg-[#C88B3D]" : "bg-hover-gold"
+                      }`}></div>
+                      <div className="flex flex-col space-y-0.5 flex-1">
+                        <div className={`h-1 rounded w-3/4 ${
+                          theme === "dark" ? "bg-gray-400" : "bg-gray-300"
+                        }`}></div>
+                        <div className={`h-1 rounded w-1/2 ${
+                          theme === "dark" ? "bg-gray-400" : "bg-gray-300"
+                        }`}></div>
+                        <div className={`h-1 rounded w-2/3 ${
+                          theme === "dark" ? "bg-gray-400" : "bg-gray-300"
+                        }`}></div>
+                        <div className={`h-1 rounded w-1/3 ${
+                          theme === "dark" ? "bg-gray-400" : "bg-gray-300"
+                        }`}></div>
+                      </div>
                     </div>
                   </div>
-                  
-                  {/* Card 2 - Bottom left */}
-                  <div className="absolute bottom-0 left-2 w-8 h-6 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center">
-                    <div className="flex flex-col space-y-0.5">
-                      <div className="h-1 bg-gray-300 rounded w-6"></div>
-                      <div className="h-1 bg-gray-300 rounded w-4"></div>
-                    </div>
-                  </div>
-                  
-                  {/* Card 3 - Top right */}
-                  <div className="absolute top-2 right-0 w-12 h-8 bg-white rounded-lg shadow-sm border border-gray-200 flex items-start justify-start p-1">
-                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1 mt-1"></div>
-                    <div className="flex flex-col space-y-0.5 flex-1">
-                      <div className="h-1 bg-gray-300 rounded w-3/4"></div>
-                      <div className="h-1 bg-gray-300 rounded w-1/2"></div>
-                      <div className="h-1 bg-gray-300 rounded w-2/3"></div>
-                      <div className="h-1 bg-gray-300 rounded w-1/3"></div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Greeting Text */}
-                <div className="text-center mb-6">
-                  <h3 className={`text-lg font-bold mb-2 ${
-                    theme === "dark" ? "text-white" : "text-gray-900"
-                  }`}>
-                    Hi, {user.name || "user name"}
-                  </h3>
-                  <p className={`text-sm ${
-                    theme === "dark" ? "text-gray-300" : "text-gray-600"
-                  }`}>
-                    Spot any bugs or have feedback?
-                  </p>
-                </div>
-                
-                {/* Contact Button */}
-                <button
-                  className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg shadow-sm transition-colors duration-200"
-                  onClick={() => {
-                    // You can add contact functionality here
-                    window.open('mailto:developer@example.com?subject=Letter Management System Feedback', '_blank');
-                  }}
-                >
-                  Contact Developer
-                </button>
-              </div>
-            )}
+                 
+                 {/* Greeting Text */}
+                 <div className="text-center mb-10">
+                   <h3 className={`text-xl font-bold mb-4 ${
+                     theme === "dark" ? "text-white" : "text-gray-900"
+                   }`}>
+                     Hi, {user.name || "user name"}
+                   </h3>
+                   <p className={`text-sm ${
+                     theme === "dark" ? "text-gray-300" : "text-gray-600"
+                   }`}>
+                     Spot any bugs or have feedback?
+                   </p>
+                 </div>
+                 
+                                   {/* Contact Button */}
+                  <button
+                    className={`w-full font-bold py-3 px-4 rounded-lg shadow-sm transition-colors duration-200 ${
+                      theme === "dark" 
+                        ? "bg-[#C88B3D] hover:bg-blue-500 text-white" 
+                        : "bg-hover-gold hover:bg-blue-500 text-white"
+                    }`}
+                    onClick={() => {
+                      // Open Telegram contact
+                      window.open('https://t.me/GodisGoodallzT', '_blank');
+                    }}
+                  >
+                    Contact Developer
+                  </button>
+               </div>
+             )}
           </div>
         </div>
       </div>
