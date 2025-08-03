@@ -111,17 +111,17 @@ export const Sidebar = ({
         </button>
       </div>
 
-      {/* Sidebar */}
-      <div
-        className={`fixed z-40 transform transition-all duration-300 ease-in-out
-      top-16 h-[calc(100vh-64px)] /* Mobile: always positioned below header and takes remaining height */
-      ${
-        isOpen ? "translate-x-0 w-80" : "translate-x-0 w-12"
-      } /* Mobile width: open 80, closed 12 */
-      md:translate-x-0 md:static md:block md:h-screen /* Desktop: always visible, static, full height */
-      ${isOpen ? "md:w-64" : "md:w-20"} /* Desktop width: open 64, closed 20 */
-      ${theme === "dark" ? "bg-[#2E5C7D]" : "bg-white"}`}
-      >
+             {/* Sidebar */}
+       <div
+         className={`fixed z-40 transform transition-all duration-300 ease-in-out
+       top-16 h-[calc(100vh-64px)] /* Mobile: always positioned below header and takes remaining height */
+       ${
+         isOpen ? "translate-x-0 w-96" : "translate-x-0 w-12"
+       } /* Mobile width: open 96, closed 12 */
+       md:translate-x-0 md:static md:block md:h-screen /* Desktop: always visible, static, full height */
+       ${isOpen ? "md:w-80" : "md:w-20"} /* Desktop width: open 80, closed 20 */
+       ${theme === "dark" ? "bg-[#2E5C7D]" : "bg-white"}`}
+       >
         <div
           className={`h-full border-r-2 rounded-tr-[32px] rounded-br-[32px] relative transition-colors duration-300 ${
             theme === "dark" ? "border-[#C88B3D]/30" : "border-gray-300"
@@ -375,8 +375,8 @@ export const Sidebar = ({
                   <button
                     className={`w-full font-bold py-3 px-4 rounded-lg shadow-sm transition-colors duration-200 ${
                       theme === "dark" 
-                        ? "bg-[#C88B3D] hover:bg-blue-500 text-white" 
-                        : "bg-hover-gold hover:bg-blue-500 text-white"
+                        ? "bg-[#2E5C7D] hover:bg-[#1E4C6D] hover:text-hover-gold text-white" 
+                        : "bg-[#2E5C7D] hover:bg-[#1E4C6D] hover:text-hover-gold text-white"
                     }`}
                     onClick={() => {
                       // Open Telegram contact

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StatsBarChart } from "../dashboard/StatsBarChart";
 import { StatsPieChart } from "../dashboard/StatsPieChart";
 import { StatsLineChart } from "../dashboard/StatsLineChart";
+import { RecentLettersTwoColumn } from "../dashboard/RecentLettersTwoColumn";
 import LoadingSpinner from "../common/LoadingSpinner";
 import { useLanguage } from "./LanguageContext";
 
@@ -122,28 +123,33 @@ const Dashboard = () => {
             <span className="text-3xl font-bold text-[#10b981]">
               {userStats.sentCount ?? 0}
             </span>
-            <span className="text-gray-500 mt-2">{t.dashboard.sentLetters || "Sent Letters"}</span>
+            <span className="text-gray-500 mt-2">Sent Letters</span>
           </div>
           <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center transition-transform duration-200 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <span className="text-3xl font-bold text-[#6366f1]">
               {userStats.receivedCount ?? 0}
             </span>
-            <span className="text-gray-500 mt-2">{t.dashboard.receivedLetters || "Received Letters"}</span>
+            <span className="text-gray-500 mt-2">Received Letters</span>
           </div>
           <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center transition-transform duration-200 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <span className="text-3xl font-bold text-[#f59e42]">
               {userStats.totalUserLetters ?? 0}
             </span>
-            <span className="text-gray-500 mt-2">{t.dashboard.totalUserLetters || "Total (Sent + Received)"}</span>
+            <span className="text-gray-500 mt-2">Total (Sent + Received)</span>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div className="transition-transform duration-200 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <StatsBarChart data={barData} />
           </div>
           <div className="transition-transform duration-200 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <StatsLineChart data={lineData} />
           </div>
+        </div>
+        
+        {/* Recent Letters Two-Column Section */}
+        <div className="mt-8">
+          <RecentLettersTwoColumn />
         </div>
       </div>
     </div>
