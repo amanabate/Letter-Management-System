@@ -1,0 +1,9 @@
+.sent-table-row-hover {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.sent-table-row-hover:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08), 0 1.5px 4px rgba(0,0,0,0.08);
+  transform: scale(1.02);
+  z-index: 1;
+  background: #f9fafb;
+} 

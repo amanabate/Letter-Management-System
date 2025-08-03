@@ -1,0 +1,8 @@
+<TemplateMemoLetter
+  subject={openLetter.subject}
+  date={getLetterSentDate(openLetter.createdAt)}
+  recipient={getRecipientDisplayName(openLetter)}
+  reference={""}
+  body={openLetter.content}
+  signature={openLetter.fromName}
+/>
