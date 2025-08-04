@@ -295,6 +295,10 @@
   "sentLetters": "Sent Letters",
   "receivedLetters": "Received Letters",
   "totalUserLetters": "Total (Sent + Received)",
+  "contactDeveloper": "Contact Developer",
+  "noReceivedLettersYet": "No received letters yet",
+  "noCarbonCopyLettersYet": "No carbon copy letters yet",
+  "carbonCopy": "Carbon Copy",
   "archive": {
     "title": "Archive",
     "manageArchivedLetters": "Manage your archived letters here.",
@@ -312,5 +316,8 @@
     "sentTab": "Sent Letters",
     "noArchivedReceivedLetters": "No archived received letters.",
     "noArchivedSentLetters": "No archived sent letters."
+  },
+  "feedback": {
+    "spotBugsOrFeedback": "Spot any bugs or have feedback?"
   }
 }

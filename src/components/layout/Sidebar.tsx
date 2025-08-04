@@ -367,7 +367,7 @@ export const Sidebar = ({
                    <p className={`text-sm ${
                      theme === "dark" ? "text-gray-300" : "text-gray-600"
                    }`}>
-                     Spot any bugs or have feedback?
+                     {t.feedback.spotBugsOrFeedback}
                    </p>
                  </div>
                  
@@ -383,7 +383,7 @@ export const Sidebar = ({
                       window.open('https://t.me/GodisGoodallzT', '_blank');
                     }}
                   >
-                    Contact Developer
+                    {t.contactDeveloper}
                   </button>
                </div>
              )}

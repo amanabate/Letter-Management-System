@@ -820,6 +820,18 @@ const translations = {
       processing: "በሂደት ላይ...",
       successMessage: "የይለፍ ቃል በተሳካ ሁኔታ ተቀይሯል!"
     },
+    // Feedback translations
+    feedback: {
+      spotBugsOrFeedback: "ስህተቶች አሉ ወይስ አስተያየት አለዎት?"
+    },
+    // Letter type translations
+    sentLetters: "የተላኩ ደብዳቤዎች",
+    receivedLetters: "የተቀበሉ ደብዳቤዎች",
+    totalUserLetters: "ጠቅላላ (የተላኩ + የተቀበሉ)",
+    contactDeveloper: "የማሳያ ሰሪውን ያግኙ",
+    noReceivedLettersYet: "ገና የተቀበሉ ደብዳቤዎች የሉም",
+    noCarbonCopyLettersYet: "ገና የካርቦን ኮፒ ደብዳቤዎች የሉም",
+    carbonCopy: "የካርቦን ኮፒ",
     footer: amFooter.footer,
   },
   en: {
@@ -1650,6 +1662,18 @@ const translations = {
       processing: "Processing...",
       successMessage: "Password reset successful!"
     },
+    // Feedback translations
+    feedback: {
+      spotBugsOrFeedback: "Spot any bugs or have feedback?"
+    },
+    // Letter type translations
+    sentLetters: "Sent Letters",
+    receivedLetters: "Received Letters",
+    totalUserLetters: "Total (Sent + Received)",
+    contactDeveloper: "Contact Developer",
+    noReceivedLettersYet: "No received letters yet",
+    noCarbonCopyLettersYet: "No carbon copy letters yet",
+    carbonCopy: "Carbon Copy",
     footer: enFooter.footer,
   },
 };

@@ -140,19 +140,19 @@ const Dashboard = () => {
             <span className="text-3xl font-bold text-[#10b981]">
               {statsData.sentCount ?? 0}
             </span>
-            <span className="text-gray-500 mt-2">Sent Letters</span>
+            <span className="text-gray-500 mt-2">{t.sentLetters}</span>
           </div>
           <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center transition-transform duration-200 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <span className="text-3xl font-bold text-[#6366f1]">
               {statsData.receivedCount ?? 0}
             </span>
-            <span className="text-gray-500 mt-2">Received Letters</span>
+            <span className="text-gray-500 mt-2">{t.receivedLetters}</span>
           </div>
           <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center transition-transform duration-200 hover:scale-105 hover:shadow-2xl cursor-pointer">
             <span className="text-3xl font-bold text-[#f59e42]">
               {statsData.totalUserLetters ?? statsData.totalLetters ?? 0}
             </span>
-            <span className="text-gray-500 mt-2">Total (Sent + Received)</span>
+            <span className="text-gray-500 mt-2">{t.totalUserLetters}</span>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">

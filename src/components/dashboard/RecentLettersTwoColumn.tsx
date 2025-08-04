@@ -87,7 +87,7 @@ export const RecentLettersTwoColumn = () => {
     <div className="bg-white rounded-lg border border-gray-200 transition-transform duration-200 hover:shadow-lg hover:scale-[1.02]">
       <div className="p-6 border-b border-gray-200">
         <h3 className="text-lg font-semibold text-gray-800 text-center">
-          Recent Letters
+          {t.dashboard.recentLetters}
         </h3>
       </div>
              <div className="grid grid-cols-3 divide-x divide-gray-200">
@@ -96,7 +96,7 @@ export const RecentLettersTwoColumn = () => {
           <div className="flex items-center justify-center mb-4">
             <ArrowUpIcon className="w-5 h-5 text-green-600 mr-2" />
             <h4 className="text-sm font-semibold text-gray-700">
-              Sent Letters
+              {t.sentLetters}
             </h4>
           </div>
           <div className="space-y-3 max-h-64 overflow-y-auto">
@@ -135,7 +135,7 @@ export const RecentLettersTwoColumn = () => {
           <div className="flex items-center justify-center mb-4">
             <ArrowDownIcon className="w-5 h-5 text-blue-600 mr-2" />
             <h4 className="text-sm font-semibold text-gray-700">
-              Received Letters
+              {t.receivedLetters}
             </h4>
           </div>
           <div className="space-y-3 max-h-64 overflow-y-auto">
@@ -163,7 +163,7 @@ export const RecentLettersTwoColumn = () => {
                ))
             ) : (
               <div className="text-center py-4">
-                <p className="text-sm text-gray-500">No received letters yet</p>
+                <p className="text-sm text-gray-500">{t.noReceivedLettersYet}</p>
               </div>
             )}
           </div>
@@ -174,7 +174,7 @@ export const RecentLettersTwoColumn = () => {
            <div className="flex items-center justify-center mb-4">
              <CopyIcon className="w-5 h-5 text-purple-600 mr-2" />
              <h4 className="text-sm font-semibold text-gray-700">
-               Carbon Copy
+               {t.carbonCopy}
              </h4>
            </div>
            <div className="space-y-3 max-h-64 overflow-y-auto">
@@ -202,7 +202,7 @@ export const RecentLettersTwoColumn = () => {
                ))
              ) : (
                <div className="text-center py-4">
-                 <p className="text-sm text-gray-500">No carbon copy letters yet</p>
+                 <p className="text-sm text-gray-500">{t.noCarbonCopyLettersYet}</p>
                </div>
              )}
            </div>

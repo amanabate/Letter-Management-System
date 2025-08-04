@@ -360,5 +360,12 @@
   },
   "sentLetters": "የተላኩ ደብዳቤዎች",
   "receivedLetters": "የተቀበሉ ደብዳቤዎች",
-  "totalUserLetters": "ጠቅላላ (የተላኩ + የተቀበሉ)"
+  "totalUserLetters": "ጠቅላላ (የተላኩ + የተቀበሉ)",
+  "contactDeveloper": "የማሳያ ሰሪውን ያግኙ",
+  "noReceivedLettersYet": "ገና የተቀበሉ ደብዳቤዎች የሉም",
+  "noCarbonCopyLettersYet": "ገና የካርቦን ኮፒ ደብዳቤዎች የሉም",
+  "carbonCopy": "የካርቦን ኮፒ",
+  "feedback": {
+    "spotBugsOrFeedback": "ስህተቶች አሉ ወይስ አስተያየት አለዎት?"
+  }
 }
